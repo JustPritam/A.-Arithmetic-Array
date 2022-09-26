@@ -1,0 +1,32 @@
+import java.util.*;
+public class arithmeticArray{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for(int i = 0; i < t; i++){
+            int n = sc.nextInt();
+            int c= 0;
+            int arr[] = new int[n];
+            for(int j = 0; j < n; j++)
+                arr[j] = sc.nextInt();
+            for(int j = 0; j < n; j++)
+                c+= arr[j];
+            if(c < n)
+                System.out.println(1);
+            else
+                System.out.println(c - n);
+        }
+    }
+}
+
+
+To make the arithmetic mean be equal to exactly 1 the sum needs to be equal to the number of elements in the array.
+
+Let's consider 3 cases for this problem:
+
+1) The sum of the array equals n: Here the answer is 0 since the arithmetic mean of the array is initially 1.
+
+2) The sum of the array is smaller than n: The answer is always 1 since we can add a single integer k such that sum+k=n+1 is satisfied and more specifically k=n−sum+1.
+
+3) The sum of the array is greater than n: If we add any number apart from 0 will add to the sum more or equal than to the number of elements. 
+   The number of 0's to add can be found by a loop of adding 0's until the number of elements is equal to the sum or by the simple formula of sum−n.
